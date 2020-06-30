@@ -93,4 +93,8 @@ from the port and push it to the stack
 **HALT[0xff]:**
 'HALT' halt the execution and stop the VM 
 
+### Bytecodebuilder.py
+is a simple script that will take VM assembaly code and gendrate a bytecode
+
+
 

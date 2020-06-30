@@ -255,4 +255,5 @@ class TestInstructions(TestCase):
 
         assert True
 
-    def test_call(self):
+    def test_call_and_ret(self):
+        pass
