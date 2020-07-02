@@ -171,4 +171,60 @@ This port will send and receive data over p2p network
 
 
  
+### The Machine High level language
+This machine is equiped with its own simple Language 
+That have the following keywords
+ * var: a variable deceleration, the value will be saved in the machine memory 
+ * const: a variable deceleration, the value will be saved in the machine memory 
+ * if-else:
+ * print:
+ 
+  The language is based on this grammar
+ ```buildoutcfg
+letter : "A" | "B" | "C" | "D" | "E" | "F" | "G"
+       | "H" | "I" | "J" | "K" | "L" | "M" | "N"
+       | "O" | "P" | "Q" | "R" | "S" | "T" | "U"
+       | "V" | "W" | "X" | "Y" | "Z" | "a" | "b"
+       | "c" | "d" | "e" | "f" | "g" | "h" | "i"
+       | "j" | "k" | "l" | "m" | "n" | "o" | "p"
+       | "q" | "r" | "s" | "t" | "u" | "v" | "w"
+       | "x" | "y" | "z" 
+digit : "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" 
+symbol : "[" | "]" | "{" | "}" | "(" | ")" | "<" | ">"
+       | "'" | '"' | "=" | "|" | "." | "," | ";" 
+character : letter | digit | symbol | "_" 
+number = digit+;
+string = '"' , { character - '"' }, '"' ;
+boolean = "True" | "False"
+WS = "/s+"
+logic = "&" | "|" | "!"
+math = "+" | "-" | "*" | "/" | "\\" | "%"
+escape = "\'" | "\"" | "\\" | "\n" | "\r" | "\t" | "\b" | "\f" | "\v" | "\0" | "0xFF"
+number_litrals = "b" digits | "0x" digits  
+
+program = Staments
+Statment = LANGStatment | IFStatment | FORStatment | LogicStatment
+           FUNCStatment 
+            
+LOGICStatment = expression logic expression
+FUNCStatment = "func" FUNCNAME "(" PARAMETERS ")" ":" DataType
+FUNCNAME = string
+PARAMETERS = Identifier WS datatype "," | Identifier WS  datatype
+LANGStatment = TypeId Identifier ":" DataType = expression 
+
+FORStatment = "for" Identifier "from" digit "to" digit "step" digit "{" Statments "}"
+IFStatment =  "if" expresson { statments } 
+
+
+TypeId = var | const
+Identifier = letter , { letter | digit | "_" }
+Datatype = "int" | "float" | "bool" | "string"
+expression = number, "+", number, ";"
+expression = "if"
+
+
+
+
+
+```
 

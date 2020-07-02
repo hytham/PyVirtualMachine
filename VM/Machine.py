@@ -1,5 +1,5 @@
 from VM.Compiler.Instructions import Instructions
-from VM.Ports.PortControllers import tty1
+from VM.Ports.PortControllers import tty1, tty2
 from VM.VMContext import VMContext
 
 
@@ -56,7 +56,8 @@ class Machine:
 
     def register_ports(self):
         controllers = [
-            tty1
+            tty1,
+            tty2
         ]
 
 

@@ -15,6 +15,7 @@ class BytcodeBuilder:
                     self.bytecode.append(b)
 
         return self.bytecode
+
     def generate_from_lines(self,lines):
         bytecode = []
         for line in lines:
@@ -24,20 +25,16 @@ class BytcodeBuilder:
                 bytecode.append(b)
 
         return bytecode
-    def parse(self,lines):
-            for line in lines:
-                line_parts = line.split(' ')
-                code = self.getOpcode(line_parts)
-                for b in iter(code):
-                    self.bytecode.append(b)
 
-            return self.bytecode
+
+
     def save(self,filename):
         f = open(filename, 'w+b')
         byte_arr = self.bytecode
         binary_format = bytearray(byte_arr)
         f.write(binary_format)
         f.close()
+
     def getOpcode(self,parts):
         opcode =str.upper(parts[0])
         code , nargs = self.inst.getInstForOpcode(opcode)
